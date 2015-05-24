@@ -1,0 +1,14 @@
+# This container is specific to the application.
+# It contains configuration and data for other containers.
+data:
+    build: .
+    volumes:
+        - /home/greg/dev/docker-base-images/sample_symfony_app:/srv
+        - /home/greg/dev/docker-base-images/sample_symfony_app/docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+
+webserver:
+    build: ./docker-images/nginx
+    ports:
+        - '80:80'
+    volumes_from:
+        - data
