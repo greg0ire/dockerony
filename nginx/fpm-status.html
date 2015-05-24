@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>php-fpm monitoring</title>
+    </head>
+    <body>
+        <h1>php-fpm monitoring</h1>
+        <h2>Ping</h2>
+        <p>
+            <a href="/ping">Check if php-fpm is alive.</a>
+        </p>
+
+        <h2>Status pages</h2>
+
+        <h3>Summary pages</h3>
+        <p>Pick a format :</p>
+        <ul>
+            <li><a href="/status">plain text</a></li>
+            <li><a href="/status?json">json</a></li>
+            <li><a href="/status?html">html</a></li>
+            <li><a href="/status?xml">xml</a></li>
+        </ul>
+
+        <h3>Detailed pages</h3>
+        <p>Pick a format :</p>
+        <ul>
+            <li><a href="/status?full">plain text</a></li>
+            <li><a href="/status?json&full">json</a></li>
+            <li><a href="/status?html&full">html</a></li>
+            <li><a href="/status?xml&full">xml</a></li>
+        </ul>
+    </body>
+</html>

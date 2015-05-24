@@ -34,3 +34,9 @@ what will be needed when deploying the application.
 4. Create a symlink to the clone of this project, it will be used to tell
 `docker-compose` where to look for images. It should not be under version control.
 5. Create a `docker-compose.yml` file and map the volume with paths on your host.
+
+## The containers
+
+### The nginx container
+
+By default, defines a fpm-status.dev virtualhost. Try it!

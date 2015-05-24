@@ -12,6 +12,8 @@ RUN ln --symbolic --force /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 80
 
+ADD fpm-status.conf /etc/nginx/conf.d/
+ADD fpm-status.html /usr/share/nginx/html/fpm-status.html
 
 ENTRYPOINT ["nginx"]
 CMD ["-g", "daemon off;"]
