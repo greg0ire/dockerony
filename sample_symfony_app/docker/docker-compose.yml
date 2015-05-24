@@ -12,3 +12,12 @@ webserver:
         - '80:80'
     volumes_from:
         - data
+    links:
+        - appserver
+
+appserver:
+    build: ./docker-images/php
+    ports:
+        - '9000:9000'
+    volumes_from:
+        - data
