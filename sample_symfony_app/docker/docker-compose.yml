@@ -21,3 +21,16 @@ appserver:
         - '9000:9000'
     volumes_from:
         - data
+    links:
+        - database
+
+database:
+    build: ./docker-images/postgres
+    ports:
+        - '5432:5432'
+    volumes_from:
+        - data
+    environment:
+        POSTGRES_DB: sample_app
+        POSTGRES_USER: sample_app
+        POSTGRES_PASSWORD: sample_app
