@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>php-fpm monitoring</title>
+        <title>Monitoring</title>
     </head>
     <body>
-        <h1>php-fpm monitoring</h1>
-        <h2>Ping</h2>
+        <h1>Monitoring</h1>
+        <h2>Nginx</h2>
+        <p>
+            Here is <a href="/nginx_status">the Nginx status page</a>
+        </p>
+        <h2>php-fpm</h2>
+        <h3>Ping</h3>
         <p>
             <a href="/ping">Check if php-fpm is alive.</a>
         </p>
 
-        <h2>Status pages</h2>
+        <h3>Status pages</h3>
 
-        <h3>Summary pages</h3>
+        <h4>Summary pages</h4>
         <p>Pick a format :</p>
         <ul>
             <li><a href="/status">plain text</a></li>
@@ -21,7 +26,7 @@
             <li><a href="/status?xml">xml</a></li>
         </ul>
 
-        <h3>Detailed pages</h3>
+        <h4>Detailed pages</h4>
         <p>Pick a format :</p>
         <ul>
             <li><a href="/status?full">plain text</a></li>

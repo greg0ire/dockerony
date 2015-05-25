@@ -39,4 +39,5 @@ what will be needed when deploying the application.
 
 ### The nginx container
 
-By default, defines a fpm-status.dev virtualhost. Try it!
+By default, defines a monitoring.dev virtualhost. Try it, it displays nginx and
+php-fpm status pages.
