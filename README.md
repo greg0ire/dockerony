@@ -18,6 +18,7 @@ For the moment there is :
 - an nginx image
 - a php image
 - a postgres image
+- a memcached image
 
 All images are based on the same docker image : `ubuntu:trusty`.
 

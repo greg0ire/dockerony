@@ -23,6 +23,7 @@ appserver:
         - data
     links:
         - database
+        - memorycache
 
 database:
     build: ./docker-images/postgres
@@ -34,3 +35,8 @@ database:
         POSTGRES_DB: sample_app
         POSTGRES_USER: sample_app
         POSTGRES_PASSWORD: sample_app
+
+memorycache:
+    build: ./docker-images/memcached
+    ports:
+        - '11211:11211'
