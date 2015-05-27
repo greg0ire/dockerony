@@ -24,6 +24,7 @@ appserver:
     links:
         - database
         - memorycache
+        - elasticsearch
 
 database:
     build: ./docker-images/postgres
@@ -40,3 +41,11 @@ memorycache:
     build: ./docker-images/memcached
     ports:
         - '11211:11211'
+
+elasticsearch:
+    build: ./docker-images/elasticsearch
+    volumes_from:
+        - data
+    ports:
+        - "9200:9200"
+        - "9300:9300"
