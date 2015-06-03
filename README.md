@@ -48,3 +48,8 @@ what will be needed when deploying the application.
 
 By default, defines a monitoring.dev virtualhost. Try it, it displays nginx and
 php-fpm status pages.
+
+### The mailcatcher container
+
+Exposes an administation interface on port 1080, and an SMTP service listening
+on port 1025.

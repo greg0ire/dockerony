@@ -1,0 +1,13 @@
+{
+    "name": "greg0ire/sample_symfony_app",
+    "description": "Dummy app to test docker",
+    "require": {
+        "swiftmailer/swiftmailer": "^5.4"
+    },
+    "authors": [
+        {
+            "name": "Grégoire Paris",
+            "email": "postmaster@greg0ire.fr"
+        }
+    ]
+}

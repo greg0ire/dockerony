@@ -25,6 +25,7 @@ appserver:
         - database
         - memorycache
         - elasticsearch
+        - mailer
 
 database:
     build: ./docker/docker-images/postgres
@@ -36,6 +37,12 @@ database:
         POSTGRES_DB: sample_app
         POSTGRES_USER: sample_app
         POSTGRES_PASSWORD: sample_app
+
+mailer:
+    build: ./docker/docker-images/mailcatcher
+    ports:
+        - '1080:1080'
+        - '1025:1025'
 
 memorycache:
     build: ./docker/docker-images/memcached
