@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install --yes \
     curl \
+    git-core \
     imagemagick \
     make \
     php-apc \
