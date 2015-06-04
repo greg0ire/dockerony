@@ -3,8 +3,10 @@
 data:
     build: ./docker
     volumes:
-        - /home/greg/dev/docker-base-images/sample_symfony_app:/srv
-        - /home/greg/dev/docker-base-images/sample_symfony_app/docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+        - {your_app_path}:/srv
+        - {your_app_path}/docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+        - {your_app_path}/.bashrc.docker:/home/developer/.bashrc
+        - {your_app_path}/.ssh:/home/developer/.ssh
 
 webserver:
     build: ./docker/docker-images/nginx
@@ -26,6 +28,9 @@ appserver:
         - memorycache
         - elasticsearch
         - mailer
+    environment:
+        USERNAME: {your_unix_local_username}
+        UNIX_UID: {your_unix_local_uid}
 
 database:
     build: ./docker/docker-images/postgres
@@ -34,9 +39,9 @@ database:
     volumes_from:
         - data
     environment:
-        POSTGRES_DB: sample_app
-        POSTGRES_USER: sample_app
-        POSTGRES_PASSWORD: sample_app
+        POSTGRES_DB: {your_db_name}
+        POSTGRES_USER: {your_db_user}
+        POSTGRES_PASSWORD: {your_db_password}
 
 mailer:
     build: ./docker/docker-images/mailcatcher

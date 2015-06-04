@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install --yes \
     curl \
+    git-core \
     imagemagick \
     make \
     php-apc \
@@ -36,5 +37,13 @@ RUN sed -i -e 's/;daemonize\s*=\s*yes/daemonize = no/g' /etc/php5/fpm/php-fpm.co
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 ADD php-fpm.ini /etc/php5/fpm/php.ini
 
+COPY entrypoint.sh /
+
+RUN chmod u+x /entrypoint.sh
+
+RUN mkdir /home/developer
+
 EXPOSE 9000
-ENTRYPOINT ["php5-fpm", "--nodaemonize"]
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["php5-fpm", "--nodaemonize"]
