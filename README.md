@@ -19,7 +19,7 @@ For the moment there is :
 - a php image
 - a postgres image
 - a memcached image
-- an elastisearch image
+- an elasticsearch image
 
 All images are based on the same docker image : `ubuntu:trusty`.
 
