@@ -1,4 +1,9 @@
-<?php require __DIR__ . '/../vendor/autoload.php' ?>
+<?php require __DIR__ . '/../vendor/autoload.php';
+
+use PhpAmqpLib\Connection\AMQPConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+?>
 I am a sample symfony app, in development mode! Here is some php:
 <?= time();?>
 <br/>
@@ -25,3 +30,18 @@ $mailer->send($message);
 ?>
 <br/>
 A mail was just sent. <a href="localhost:1080">Check your mail!</a>
+
+<br/>
+Ok now let us try to publish a message on rabbitmq!
+<?php
+
+$connection = new AMQPConnection('messagebroker', 5672, 'admin', 'admin');
+$channel = $connection->channel();
+$channel->queue_declare('hello', false, false, false, false);
+
+$msg = new AMQPMessage('Hello World!');
+$channel->basic_publish($msg, '', 'hello');
+$channel->close();
+$connection->close();
+?>
+Go check <a href="localhost:15672">the administration interface</a>

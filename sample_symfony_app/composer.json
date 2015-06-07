@@ -2,7 +2,8 @@
     "name": "greg0ire/sample_symfony_app",
     "description": "Dummy app to test docker",
     "require": {
-        "swiftmailer/swiftmailer": "^5.4"
+        "swiftmailer/swiftmailer": "^5.4",
+        "videlalvaro/php-amqplib": "^2.5"
     },
     "authors": [
         {

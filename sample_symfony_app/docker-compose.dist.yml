@@ -28,6 +28,7 @@ appserver:
         - memorycache
         - searchengine
         - mailer
+        - messagebroker
     environment:
         USERNAME: {your_unix_local_username}
         UNIX_UID: {your_unix_local_uid}
@@ -61,3 +62,11 @@ searchengine:
     ports:
         - "9200:9200"
         - "9300:9300"
+
+messagebroker:
+    image: tutum/rabbitmq
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+    environment:
+        RABBITMQ_PASS: admin
