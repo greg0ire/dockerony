@@ -3,10 +3,10 @@
 data:
     build: ./docker
     volumes:
-        - {your_app_path}:/srv
-        - {your_app_path}/docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
-        - {your_app_path}/bashrc.docker:/home/developer/.bashrc
-        - {path_to_your_home}/.ssh:/home/developer/.ssh
+        - .:/srv
+        - docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+        - bashrc.docker:/home/developer/.bashrc
+        - ~/.ssh:/home/developer/.ssh
 
 webserver:
     build: ./docker/docker-images/nginx
