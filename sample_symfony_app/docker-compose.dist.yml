@@ -26,7 +26,7 @@ appserver:
     links:
         - database
         - memorycache
-        - elasticsearch
+        - searchengine
         - mailer
     environment:
         USERNAME: {your_unix_local_username}
@@ -54,7 +54,7 @@ memorycache:
     ports:
         - '11211:11211'
 
-elasticsearch:
+searchengine:
     build: ./docker/docker-images/elasticsearch
     volumes_from:
         - data
