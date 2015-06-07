@@ -5,7 +5,7 @@ data:
     volumes:
         - {your_app_path}:/srv
         - {your_app_path}/docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
-        - {your_app_path}/.bashrc.docker:/home/developer/.bashrc
+        - {your_app_path}/bashrc.docker:/home/developer/.bashrc
         - {your_app_path}/.ssh:/home/developer/.ssh
 
 webserver:
