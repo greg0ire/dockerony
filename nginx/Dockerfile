@@ -15,5 +15,7 @@ EXPOSE 80
 ADD monitoring.conf /etc/nginx/conf.d/
 ADD monitoring.html /usr/share/nginx/html/monitoring.html
 
+ADD dev.conf /etc/nginx/conf.d/
+
 ENTRYPOINT ["nginx"]
 CMD ["-g", "daemon off;"]
