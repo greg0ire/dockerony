@@ -36,6 +36,7 @@ RUN sed -i -e 's/;daemonize\s*=\s*yes/daemonize = no/g' /etc/php5/fpm/php-fpm.co
 
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 ADD php-fpm.ini /etc/php5/fpm/php.ini
+ADD xdebug.ini /etc/php5/mods-available/xdebug.ini
 
 COPY entrypoint.sh /
 
