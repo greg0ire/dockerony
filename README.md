@@ -50,6 +50,14 @@ what will be needed when deploying the application.
 By default, defines a monitoring.dev virtualhost. Try it, it displays nginx and
 php-fpm status pages.
 
+### The php container
+
+It comes with XDebug remote debugging ready to use!
+Every time you set a `GET` / `POST` / `COOKIE` `XDEBUG_SESSION_START` variable, XDebug
+will try to connect on your machine, on port `9009` (this is not configurable yet).
+Since you are using docker, do not forget to map the path to your application in
+your host to `/srv`.
+
 ### The mailcatcher container
 
 Exposes an administation interface on port 1080, and an SMTP service listening
