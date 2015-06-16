@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN ln --symbolic --force /dev/stdout /var/log/nginx/access.log
 RUN ln --symbolic --force /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80
+EXPOSE 80 443
 
 ADD monitoring.conf /etc/nginx/conf.d/
 ADD monitoring.html /usr/share/nginx/html/monitoring.html
