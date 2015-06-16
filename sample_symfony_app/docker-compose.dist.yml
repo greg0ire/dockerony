@@ -63,6 +63,7 @@ searchengine:
         - "9200:9200"
         - "9300:9300"
 
+# Don't use 'guest/guest' to connect to this container (it is blocked)
 messagebroker:
     image: tutum/rabbitmq
     ports:
