@@ -4,8 +4,8 @@ data:
     build: ./docker
     volumes:
         - .:/srv
-        - docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
-        - bashrc.docker:/home/developer/.bashrc
+        - ./docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+        - ~/.bashrc.docker:/home/developer/.bashrc
         - ~/.ssh:/home/developer/.ssh
 
 webserver:
@@ -29,9 +29,8 @@ appserver:
         - searchengine
         - mailer
         - messagebroker
-    environment:
-        USERNAME: {your_unix_local_username}
-        UNIX_UID: {your_unix_local_uid}
+    env_file:
+        - ./docker-compose.env
 
 database:
     build: ./docker/docker-images/postgres
@@ -39,11 +38,8 @@ database:
         - '5432:5432'
     volumes_from:
         - data
-    environment:
-        POSTGRES_DB: {your_db_name}
-        POSTGRES_USER: {your_db_user}
-        POSTGRES_PASSWORD: {your_db_password}
-
+    env_file:
+        - ./docker-compose.env
 mailer:
     build: ./docker/docker-images/mailcatcher
     ports:
@@ -63,11 +59,18 @@ searchengine:
         - "9200:9200"
         - "9300:9300"
 
+frontendmanagertools:
+    build: ./docker/docker-images/npmtools
+    volumes_from:
+        - data
+    env_file:
+        - ./docker-compose.env
+
 # Don't use 'guest/guest' to connect to this container (it is blocked)
 messagebroker:
     image: tutum/rabbitmq
     ports:
         - "5672:5672"
         - "15672:15672"
-    environment:
-        RABBITMQ_PASS: admin
+    env_file:
+        - ./docker-compose.env
