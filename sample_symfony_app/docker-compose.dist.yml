@@ -4,8 +4,8 @@ data:
     build: ./docker
     volumes:
         - .:/srv
-        - docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
-        - bashrc.docker:/home/developer/.bashrc
+        - ./docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+        - ~/.bashrc.docker:/home/developer/.bashrc
         - ~/.ssh:/home/developer/.ssh
 
 webserver:
