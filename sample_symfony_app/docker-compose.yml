@@ -59,6 +59,13 @@ searchengine:
         - "9200:9200"
         - "9300:9300"
 
+frontendmanagertools:
+    build: ./docker/docker-images/npmtools
+    volumes_from:
+        - data
+    env_file:
+        - ./docker-compose.env
+
 # Don't use 'guest/guest' to connect to this container (it is blocked)
 messagebroker:
     image: tutum/rabbitmq
