@@ -21,6 +21,7 @@ RUN apt-get update && \
     php5-memcache \
     php5-memcached \
     php5-pgsql \
+    php5-mysql \
     php5-xdebug \
     ruby-sass  && \
     rm --recursive --force /var/lib/apt/lists/*
