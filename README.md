@@ -62,3 +62,32 @@ your host to `/srv`.
 
 Exposes an administation interface on port 1080, and an SMTP service listening
 on port 1025.
+
+## DNS
+
+### Prerequisites
+
+To use the DNS functionality, you have to run 'bin/docker-init' with root privileges
+
+```
+sudo bin/docker-init
+```
+
+### Configuration
+
+In your docker-compose.yml file you have to set `DNSDOCK_NAME` and `DNSDOCK_IMAGE`
+for each image that you want to subscribe in DNS
+
+```
+webserver:
+    build: ./docker/docker-images/nginx
+    ports:
+        - '80'
+    environment:
+        - DNSDOCK_IMAGE=web
+        - DNSDOCK_NAME=my_project
+```
+
+With that configuration you can access to your image with 'my_project.web.docker'
+
+No needs to add any host in your /etc/hosts
