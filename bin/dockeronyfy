@@ -1,0 +1,88 @@
+#!/bin/bash
+
+cmdline () {
+
+
+    readonly PROGDIR=$(readlink -m $0/..)
+    readonly BASETEMPLATESDIR=$PROGDIR/../dockeronyfy/templates
+
+    local THEME=default
+
+    local arg=$@
+    for arg
+    do
+        local delim=""
+        case "$arg" in
+            #translate --gnu-long-options to -g (short options)
+            --theme) args="${args}-t ";;
+            --help)  args="${args}-h ";;
+            #pass through anything else
+            *) [[ "${arg:0:1}" == "-" ]] || delim="\""
+                args="${args}${delim}${arg}${delim} ";;
+        esac
+    done
+
+    readonly DIR=$@
+
+    #Reset the positional parameters to the short options
+    eval set -- $args
+
+    while getopts "t:h" OPTION
+    do
+        case $OPTION in
+            h)
+                usage
+                exit 0
+                ;;
+            t)
+                readonly THEME=$OPTARG
+                ;;
+        esac
+    done
+
+    readonly TEMPLATEDIR=$(readlink -m $BASETEMPLATESDIR/$THEME)
+
+    if [ ! $DIR ]; then
+        echo "You have to specify which dir you want dockeronyfy"
+        exit
+    fi
+
+    if [ ! -d $DIR ]; then
+        echo "This directory does not exist : " $DIR
+        exit
+    fi
+
+    if [ ! -d $TEMPLATEDIR ]; then
+        echo "This directory does not exist : " $TEMPLATEDIR
+        exit
+    fi
+
+    if [ ! -f $TEMPLATEDIR/dockeronyfy.sh ]; then
+        echo "The file 'dockeronyfy.sh' does not exist in " $TEMPLATEDIR
+        exit
+    fi
+
+    # Call the 'dockeronyfy.sh' with $DIR and $PROGDIR
+    $TEMPLATEDIR/dockeronyfy.sh $DIR $PROGDIR/..
+}
+
+usage() {
+    cat << HELPEND
+Usage: dockeronyfy [OPTIONS] DIR
+
+Runtime to quickly install dockerony configurations files in 'DIR'
+
+Options:
+    -h, --help          to see this content
+    -t, --theme=THEME   The template name in dockeronyfy/templates
+                        this directory must contain dockeronyfy.sh
+                            this script will call with two arguents
+                                - the dockerony path directory
+                                - the project path directory
+HELPEND
+}
+
+main() {
+    cmdline $@
+}
+main $@
