@@ -90,4 +90,4 @@ webserver:
 
 With that configuration you can access to your image with `my_project.web.docker`
 
-No needs to add any host in your /etc/hosts
+No need to add any host in your hosts file.
