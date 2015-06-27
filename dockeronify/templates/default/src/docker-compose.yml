@@ -20,6 +20,7 @@ webserver:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=web
+        - DNSDOCK_ALIAS=my_app.dev
 
 appserver:
     build: ./docker/docker-images/php

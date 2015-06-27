@@ -75,8 +75,9 @@ sudo bin/docker-init
 
 ### Configuration
 
-In your docker-compose.yml file you have to set `DNSDOCK_NAME` and `DNSDOCK_IMAGE`
-for each image that you want to subscribe in DNS
+In your docker-compose.yml file you can set `DNSDOCK_NAME` and `DNSDOCK_IMAGE`
+for each image that you want to subscribe in DNS. Additionaly, you can set the
+`DNSDOCK_ALIAS` to completely bypass the basic naming scheme
 
 ```
 webserver:
@@ -86,8 +87,10 @@ webserver:
     environment:
         - DNSDOCK_IMAGE=web
         - DNSDOCK_NAME=my_project
+        - DNSDOCK_ALIAS=my_app.dev
 ```
 
 With that configuration you can access to your image with `my_project.web.docker`
+*and* `my_app.dev`
 
 No need to add any host in your hosts file.
