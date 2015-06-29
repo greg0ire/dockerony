@@ -9,7 +9,7 @@ docker_ip=$(ip -family inet -oneline addr show docker0|\
 
 # Add dns as nameserver
 resolvconf -u
-sed -i "1i options timeout:1\nnameserver ${docker_ip}" /run/resolvconf/resolv.conf
+sed --in-place "1i options timeout:1\nnameserver ${docker_ip}" /run/resolvconf/resolv.conf
 
 # Launch docker dns container
 docker run --detach=true --volume=/var/run/docker.sock:/var/run/docker.sock \
