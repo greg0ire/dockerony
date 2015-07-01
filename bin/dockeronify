@@ -4,7 +4,7 @@ cmdline () {
 
 
     readonly PROGDIR=$(readlink -m $0/..)
-    readonly BASETEMPLATESDIR=$PROGDIR/../dockeronyfy/templates
+    readonly BASETEMPLATESDIR=$PROGDIR/../dockeronify/templates
 
     local THEME=default
 
@@ -43,7 +43,7 @@ cmdline () {
     readonly TEMPLATEDIR=$(readlink -m $BASETEMPLATESDIR/$THEME)
 
     if [ ! $DIR ]; then
-        echo "You have to specify which dir you want dockeronyfy"
+        echo "You have to specify which dir you want dockeronify"
         exit
     fi
 
@@ -57,25 +57,25 @@ cmdline () {
         exit
     fi
 
-    if [ ! -f $TEMPLATEDIR/dockeronyfy.sh ]; then
-        echo "The file 'dockeronyfy.sh' does not exist in " $TEMPLATEDIR
+    if [ ! -f $TEMPLATEDIR/dockeronify.sh ]; then
+        echo "The file 'dockeronify.sh' does not exist in " $TEMPLATEDIR
         exit
     fi
 
-    # Call the 'dockeronyfy.sh' with $DIR and $PROGDIR
-    $TEMPLATEDIR/dockeronyfy.sh $DIR $PROGDIR/..
+    # Call the 'dockeronify.sh' with $DIR and $PROGDIR
+    $TEMPLATEDIR/dockeronify.sh $DIR $PROGDIR/..
 }
 
 usage() {
     cat << HELPEND
-Usage: dockeronyfy [OPTIONS] DIR
+Usage: dockeronify [OPTIONS] DIR
 
 Runtime to quickly install dockerony configurations files in 'DIR'
 
 Options:
     -h, --help          to see this content
-    -t, --theme=THEME   The template name in dockeronyfy/templates
-                        this directory must contain dockeronyfy.sh
+    -t, --theme=THEME   The template name in dockeronify/templates
+                        this directory must contain dockeronify.sh
                             this script will call with two arguents
                                 - the dockerony path directory
                                 - the project path directory
