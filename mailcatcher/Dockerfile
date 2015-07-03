@@ -14,10 +14,11 @@ RUN apt-get update && \
     rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 1080
-EXPOSE 1025
+EXPOSE 25
 
 ENTRYPOINT ["mailcatcher", \
     "--smtp-ip=0.0.0.0", \
+    "--smtp-port=25", \
     "--http-ip=0.0.0.0", \
     "--foreground" \
 ]
