@@ -20,7 +20,6 @@ webserver:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=web
-        - DNSDOCK_ALIAS=my_app.dev
 
 appserver:
     build: ./docker/docker-images/php
@@ -53,7 +52,7 @@ mailer:
     build: ./docker/docker-images/mailcatcher
     ports:
         - '1080'
-        - '1025'
+        - '25'
     env_file:
         - ./docker-compose.env
     environment:
