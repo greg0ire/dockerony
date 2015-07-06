@@ -8,10 +8,8 @@ RUN apt-get update && \
      git \
      curl \
      wget \
-     npm && \
+     npm nodejs-legacy && \
      rm --recursive --force /var/lib/apt/lists/*
-
-RUN ln --symbolic /usr/bin/nodejs /usr/bin/node
 
 # install bower
 RUN npm install --global bower
