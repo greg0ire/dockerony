@@ -53,10 +53,21 @@ php-fpm status pages.
 ### The php container
 
 It comes with XDebug remote debugging ready to use!
-Every time you set a `GET` / `POST` / `COOKIE` `XDEBUG_SESSION_START` variable, XDebug
-will try to connect on your machine, on port `9009` (this is not configurable yet).
-Since you are using docker, do not forget to map the path to your application in
-your host to `/srv`.
+XDebug will try to reach your DBGP client on `172.17.42.1:9000`, please ensure
+that your client is not only listening on `localhost`.
+You will also need to configure remote path mappings in your debugging client
+so that the remote `/srv` folder is mapped to where your application is on your
+system.
+
+If you are using vim with [vdebug](https://github.com/joonty/vdebug), the
+configuration will look like this:
+
+```viml
+let g:vdebug_options= {
+\    "server": '172.17.42.1',
+\    "path_maps": {"/srv": "/home/username/path/to/code"}
+\}
+```
 
 ### The mailcatcher container
 
