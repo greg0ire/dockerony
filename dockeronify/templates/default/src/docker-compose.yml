@@ -10,8 +10,6 @@ data:
 
 webserver:
     build: ./docker/docker-images/nginx
-    ports:
-        - '80'
     volumes_from:
         - data
     links:
@@ -38,8 +36,6 @@ appserver:
 
 database:
     build: ./docker/docker-images/postgres
-    ports:
-        - '5432'
     volumes_from:
         - data
     env_file:
@@ -48,9 +44,6 @@ database:
         - DNSDOCK_IMAGE=db
 mailer:
     build: ./docker/docker-images/mailcatcher
-    ports:
-        - '1080'
-        - '1025'
     env_file:
         - ./docker-compose.env
     environment:
@@ -58,8 +51,6 @@ mailer:
 
 memorycache:
     build: ./docker/docker-images/memcached
-    ports:
-        - '11211'
     env_file:
         - ./docker-compose.env
     environment:
@@ -69,9 +60,6 @@ searchengine:
     build: ./docker/docker-images/elasticsearch
     volumes_from:
         - data
-    ports:
-        - "9200"
-        - "9300"
     env_file:
         - ./docker-compose.env
     environment:
@@ -89,9 +77,6 @@ frontendmanagertools:
 # Don't use 'guest/guest' to connect to this container (it is blocked)
 messagebroker:
     image: tutum/rabbitmq
-    ports:
-        - "5672"
-        - "15672"
     env_file:
         - ./docker-compose.env
     environment:
