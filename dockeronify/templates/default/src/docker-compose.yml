@@ -24,8 +24,6 @@ webserver:
 
 appserver:
     build: ./docker/docker-images/php
-    ports:
-        - '9000'
     volumes_from:
         - data
     links:
