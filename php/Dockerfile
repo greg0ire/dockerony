@@ -43,7 +43,7 @@ COPY entrypoint.sh /
 
 RUN chmod u+x /entrypoint.sh
 
-RUN mkdir /home/developer
+VOLUME /home/developer
 
 EXPOSE 9000
 ENTRYPOINT ["/entrypoint.sh"]
