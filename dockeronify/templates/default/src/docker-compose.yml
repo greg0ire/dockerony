@@ -6,7 +6,7 @@ data:
         - .:/srv
         - ./docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
         - ~/.bashrc.docker:/home/developer/.bashrc
-        - ~/.ssh:/home/developer/.ssh
+        - $SSH_AUTH_SOCK:/tmp/agent.sock
 
 webserver:
     build: ./docker/docker-images/nginx
@@ -33,6 +33,7 @@ appserver:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=app
+        - SSH_AUTH_SOCK=/tmp/agent.sock
 
 database:
     build: ./docker/docker-images/postgres

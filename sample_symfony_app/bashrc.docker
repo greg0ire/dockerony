@@ -1,11 +1,1 @@
-if [ -d "/home/developer/.ssh" ]; then
-
-    # start ssh-agent and setup environment
-    _plugin__ssh_env=/home/developer/.ssh/environment-docker
-    ssh-agent | sed 's/^echo/#echo/' > ${_plugin__ssh_env}
-    chmod 600 ${_plugin__ssh_env}
-    . ${_plugin__ssh_env} > /dev/null
-
-fi
-
 cd /srv
