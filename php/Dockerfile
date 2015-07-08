@@ -29,7 +29,7 @@ RUN apt-get update && \
 RUN php5enmod mcrypt
 
 # Install composer
-RUN curl -sS https://getcomposer.org/installer | php && \
+RUN curl --silent --show-error https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
 # Sanctify (the opposite of daemonize :D ) php-fpm
