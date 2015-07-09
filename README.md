@@ -73,7 +73,7 @@ The recommended way to login to this container is to exec the login command on
 it, like this:
 
 ```shell
-docker exec --interactive --tty samplesymfonyapp_appserver_1 /bin/login -p -f `whoami`
+docker exec --interactive --tty samplesymfonyapp_appserver_1 /bin/login -p -f $(whoami)
 ```
 
 The `-p` flag tells login to preserve the environment, which contains
