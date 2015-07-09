@@ -69,6 +69,17 @@ let g:vdebug_options= {
 \}
 ```
 
+The recommended way to login to this container is to exec the login command on
+it, like this:
+
+```shell
+docker exec --interactive --tty samplesymfonyapp_appserver_1 /bin/login -p -f `whoami`
+```
+
+The `-p` flag tells login to preserve the environment, which contains
+`SSH_AUTH_SOCK`, used when authenticating against remove service that provide
+composer packages. The `-f` flag will allow us to bypass authentication.
+
 ### The mailcatcher container
 
 Exposes an administation interface on port 1080, and an SMTP service listening
