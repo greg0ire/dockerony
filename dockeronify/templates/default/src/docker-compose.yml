@@ -5,7 +5,7 @@ data:
     volumes:
         - .:/srv
         - ./docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
-        - ~/.bashrc.docker:/home/developer/.bashrc
+        - .home-developer:/home/developer
         - $SSH_AUTH_SOCK:/tmp/agent.sock
 
 webserver:
