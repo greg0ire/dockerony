@@ -10,7 +10,7 @@ is to have the members of your team ready to code in three steps:
 5. Running `docker-compose up`
 
 Step 1 through 3 will only be needed once in the life of their machine. Step 3.
-and 4. can become facultative if you have an image registry. This would leave
+and 4. can become optional if you have an image registry. This would leave
 only… step 5. That's right, just one command.
 
 For the moment there is :
