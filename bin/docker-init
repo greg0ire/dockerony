@@ -1,16 +1,10 @@
-#!/bin/bash
-service docker stop
-service docker start
-sleep 3
-
-# Get docker ip
-docker_ip=$(ip -family inet -oneline addr show docker0|\
-    cut --delimiter=\  --fields=7|cut --delimiter=/ --fields=1)
-
-# Add dns as nameserver
-resolvconf -u
-sed --in-place "1i options timeout:1\nnameserver ${docker_ip}" /run/resolvconf/resolv.conf
+#!/bin/bash -eu
+if [ "$(whoami)" == 'root' ]
+then
+    echo "No need to run this script as root"
+    exit 1
+fi
 
 # Launch docker dns container
 docker run --detach=true --volume=/var/run/docker.sock:/var/run/docker.sock \
-    --publish=$docker_ip:53:53/udp tonistiigi/dnsdock
+    --publish=172.17.42.1:53:53/udp tonistiigi/dnsdock
