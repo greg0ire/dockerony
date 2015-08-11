@@ -29,7 +29,7 @@ $message = Swift_Message::newInstance('Mail sent from the app container')
 $mailer->send($message);
 ?>
 <br/>
-A mail was just sent. <a href="sample.web.docker">Check your mail!</a>
+A mail was just sent. <a href="http://sample.mailer.docker">Check your mail!</a>
 
 <br/>
 Ok now let us try to publish a message on rabbitmq!
