@@ -14,6 +14,11 @@ RUN apt-get update && \
 	&& chmod +x /usr/local/bin/gosu \
 	&& apt-get purge -y --auto-remove curl
 
+RUN apt-get update && apt-get install --yes locales &&\
+	rm --recursive --force /var/lib/apt/lists/* && \
+	localedef --inputfile=en_US --force --charmap=UTF-8 --alias-file /usr/share/locale/locale.alias en_US.UTF-8
+
+ENV LANG en_US.utf8
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 
