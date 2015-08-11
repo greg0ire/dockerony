@@ -13,12 +13,13 @@ RUN apt-get update && \
     apt-get clean && \
     rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 1080
+EXPOSE 80
 EXPOSE 25
 
 ENTRYPOINT ["mailcatcher", \
     "--smtp-ip=0.0.0.0", \
     "--smtp-port=25", \
     "--http-ip=0.0.0.0", \
+    "--http-port=80", \
     "--foreground" \
 ]

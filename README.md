@@ -82,7 +82,7 @@ composer packages. The `-f` flag will allow us to bypass authentication.
 
 ### The mailcatcher container
 
-Exposes an administation interface on port 1080, and an SMTP service listening
+Exposes an administation interface on port 80, and an SMTP service listening
 on port 25.
 
 ## DNS
