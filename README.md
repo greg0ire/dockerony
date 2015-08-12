@@ -1,7 +1,7 @@
 # Symfony development docker images
 
 Leverage the power of docker to make development initialization easy. The goal
-is to have the members of your team ready to code in three steps:
+is to have the members of your team ready to code very quickly :
 
 1. Installing Docker
 2. Installing Docker Compose
