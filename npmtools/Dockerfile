@@ -5,10 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install packages that are specific to our stack
 RUN apt-get update && \
     apt-get install --yes \
-     git \
      curl \
-     wget \
-     npm nodejs-legacy && \
+     git \
+     nodejs-legacy \
+     npm \
+     wget && \
      rm --recursive --force /var/lib/apt/lists/*
 
 # install bower
