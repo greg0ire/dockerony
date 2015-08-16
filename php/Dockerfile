@@ -23,7 +23,8 @@ RUN apt-get update && \
     php5-pgsql \
     php5-mysql \
     php5-xdebug \
-    ruby-sass  && \
+    ruby-sass \
+    zsh && \
     rm --recursive --force /var/lib/apt/lists/*
 
 RUN php5enmod mcrypt

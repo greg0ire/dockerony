@@ -9,7 +9,8 @@ RUN apt-get update && \
      git \
      nodejs-legacy \
      npm \
-     wget && \
+     wget \
+     zsh && \
      rm --recursive --force /var/lib/apt/lists/*
 
 # install bower

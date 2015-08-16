@@ -8,7 +8,7 @@ if [ "$USERNAME" ]; then
     fi
 
     # Create user
-    useradd --uid "$UNIX_UID" --home /home/developer "$USERNAME"
+    useradd --uid "$UNIX_UID" --home /home/developer "$USERNAME" --shell "$CONTAINER_SHELL"
 
     chown "$USERNAME:$USERNAME" /home/developer
 
