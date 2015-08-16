@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 
-if [ $USERNAME ]; then
+if [ "$USERNAME" ]; then
 
-    if [ -z $UNIX_UID ]; then
+    if [ -z "$UNIX_UID" ]; then
         UNIX_UID=1001
     fi
 
     # Create user
-    useradd --uid $UNIX_UID --home /home/developer $USERNAME
+    useradd --uid "$UNIX_UID" --home /home/developer "$USERNAME" --shell "$CONTAINER_SHELL"
 
-    chown $USERNAME:$USERNAME /home/developer
+    chown "$USERNAME:$USERNAME" /home/developer
 
     # Replace www-data by $USERNAME
     sed --in-place --expression="s/www-data/$USERNAME/g" /etc/php5/fpm/pool.d/www.conf
