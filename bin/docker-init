@@ -1,5 +1,5 @@
 #!/bin/bash -u
-if [ "$(whoami)" == 'root' ]
+if [ "$(whoami)" = 'root' ]
 then
     echo "No need to run this script as root"
     exit 1
