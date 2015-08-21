@@ -48,7 +48,8 @@ what will be needed when deploying the application.
 ### The nginx container
 
 By default, defines a `monitoring.*` virtualhost. Try it, it displays nginx and
-php-fpm status pages.
+php-fpm status pages. There also is a `coverage.*` virtualhost, for phpunit users.
+It will serve files from `/srv/build/coverage`.
 
 ### The php container
 

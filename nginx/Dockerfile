@@ -14,6 +14,7 @@ EXPOSE 80 443
 
 ADD monitoring.conf /etc/nginx/conf.d/
 ADD monitoring.html /usr/share/nginx/html/monitoring.html
+ADD coverage.conf /etc/nginx/conf.d/
 
 ADD dev.conf /etc/nginx/conf.d/
 
