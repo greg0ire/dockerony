@@ -47,7 +47,7 @@ what will be needed when deploying the application.
 
 ### The nginx container
 
-By default, defines a monitoring.dev virtualhost. Try it, it displays nginx and
+By default, defines a `monitoring.*` virtualhost. Try it, it displays nginx and
 php-fpm status pages.
 
 ### The php container
