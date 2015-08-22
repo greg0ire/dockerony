@@ -91,7 +91,11 @@ on port 25.
 
 ### Prerequisites
 
-To use the DNS functionality, you have to run `bin/docker-init`.
+To use the DNS functionality, you have to run `bin/docker-init`. This script
+will run a dns server and map it to your localhost. You might need to have a
+look at the documentation of
+[dnsdock](https://github.com/tonistiigi/dnsdock/blob/master/readme.md) if it
+does not work.
 
 ```
 bin/docker-init
