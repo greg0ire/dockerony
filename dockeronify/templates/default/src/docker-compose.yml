@@ -9,7 +9,7 @@ data:
         - $SSH_AUTH_SOCK:/tmp/agent.sock
 
 webserver:
-    build: ./docker/docker-images/nginx
+    image: greg0ire/nginx
     volumes_from:
         - data
     links:
@@ -20,7 +20,7 @@ webserver:
         - DNSDOCK_IMAGE=web
 
 appserver:
-    build: ./docker/docker-images/php
+    image: greg0ire/php
     volumes_from:
         - data
     links:
@@ -36,7 +36,7 @@ appserver:
         - SSH_AUTH_SOCK=/tmp/agent.sock
 
 database:
-    build: ./docker/docker-images/postgres
+    image: greg0ire/postgres
     volumes_from:
         - data
     env_file:
@@ -44,21 +44,21 @@ database:
     environment:
         - DNSDOCK_IMAGE=db
 mailer:
-    build: ./docker/docker-images/mailcatcher
+    image: greg0ire/mailcatcher
     env_file:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=mailer
 
 memorycache:
-    build: ./docker/docker-images/memcached
+    image: greg0ire/memcached
     env_file:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=memcache
 
 searchengine:
-    build: ./docker/docker-images/elasticsearch
+    image: greg0ire/elasticsearch
     volumes_from:
         - data
     env_file:
@@ -67,7 +67,7 @@ searchengine:
         - DNSDOCK_IMAGE=search
 
 frontendmanagertools:
-    build: ./docker/docker-images/npmtools
+    image: greg0ire/npmtools
     volumes_from:
         - data
     env_file:

@@ -5,13 +5,7 @@ is to have the members of your team ready to code very quickly :
 
 1. Installing Docker
 2. Installing Docker Compose
-3. Cloning this repo
-4. Create a symlink to the repo in their clone of the application.
-5. Running `docker-compose up`
-
-Step 1 through 3 will only be needed once in the life of their machine. Step 3.
-and 4. can become optional if you have an image registry. This would leave
-only… step 5. That's right, just one command.
+3. Running `docker-compose up`
 
 For the moment there is :
 
@@ -40,9 +34,7 @@ Make sure to only use `VOLUMES` corresponding to containers you will be using.
 Configuration files could be part of the image rather than mounted on it, that is
 true, but having them as part of your application is great, because it makes explicit
 what will be needed when deploying the application.
-4. Create a symlink to the clone of this project, it will be used to tell
-`docker-compose` where to look for images. It should not be under version control.
-5. Create a `docker-compose.yml` file and map the volume with paths on your host.
+4. Create a `docker-compose.yml` file and map the volume with paths on your host.
 
 ## The containers
 
@@ -109,7 +101,7 @@ for each image that you want to subscribe in DNS. Additionaly, you can set the
 
 ```
 webserver:
-    build: ./docker/docker-images/nginx
+    build: greg0ire/nginx
     ports:
         - '80'
     environment:
