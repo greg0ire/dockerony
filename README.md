@@ -22,7 +22,8 @@ For the moment there is :
 - a mailcatcher image
 - an elasticsearch image
 
-All images are based on the same docker image : `ubuntu:trusty`.
+All images are based on the same docker image : `ubuntu:trusty`, so that disk
+usage is not to high.
 
 ## Setup inside a Symfony2 application
 
