@@ -44,4 +44,4 @@ $channel->basic_publish($msg, '', 'hello');
 $channel->close();
 $connection->close();
 ?>
-Go check <a href="localhost:15672">the administration interface</a>
+Go check <a href="sample.mb.docker:15672">the administration interface</a>
