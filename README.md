@@ -105,7 +105,7 @@ bin/docker-init
 
 In your docker-compose.yml file you can set `DNSDOCK_NAME` and `DNSDOCK_IMAGE`
 for each image that you want to subscribe in DNS. Additionaly, you can set the
-`DNSDOCK_ALIAS` to completely bypass the basic naming scheme
+`DNSDOCK_ALIAS` to completely bypass the basic naming scheme.
 
 ```
 webserver:
