@@ -23,7 +23,7 @@ For the moment there is :
 - an elasticsearch image
 
 All images are based on the same docker image : `ubuntu:trusty`, so that disk
-usage is not to high.
+usage is not too high.
 
 ## Setup inside a Symfony2 application
 
