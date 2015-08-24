@@ -101,7 +101,7 @@ for each image that you want to subscribe in DNS. Additionaly, you can set the
 
 ```
 webserver:
-    build: greg0ire/nginx
+    image: greg0ire/nginx
     ports:
         - '80'
     environment:
