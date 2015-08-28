@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ "$USERNAME" ]; then
+if [ "$USERNAME" -a ! "$(id "$USERNAME")" ]; then
 
     if [ -z "$UNIX_UID" ]; then
         UNIX_UID=1001
