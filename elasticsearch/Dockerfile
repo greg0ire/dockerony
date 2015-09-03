@@ -12,6 +12,8 @@ RUN wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo ap
 	/usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
 	rm --recursive --force /var/lib/apt/lists/*
 
+RUN /usr/share/elasticsearch/bin/plugin --install elasticsearch/marvel/latest
+
 ADD run.sh /usr/local/bin/run.sh
 
 EXPOSE 9200 9300
