@@ -9,6 +9,8 @@ RUN apt-get update && \
     git-core \
     imagemagick \
     make \
+    nodejs-legacy \
+    npm \
     php-apc \
     php5-cli \
     php5-curl \
