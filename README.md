@@ -26,15 +26,11 @@ in your app.
 
 1. Create a docker directory, in order to have a clean separation from the rest
 of the project.
-2. Create a `Dockerfile`. It will contain the definition for
-the data container of your application. It should consist only of `VOLUME`
-statements, defining which files and directories will be shared with the containers.
-Make sure to only use `VOLUMES` corresponding to containers you will be using.
-3. Create any configuration file needed by the containers you intend to use.
+2. Create any configuration file needed by the containers you intend to use.
 Configuration files could be part of the image rather than mounted on it, that is
 true, but having them as part of your application is great, because it makes explicit
 what will be needed when deploying the application.
-4. Create a `docker-compose.yml` file and map the volume with paths on your host.
+3. Create a `docker-compose.yml` file and map the volume with paths on your host.
 
 ## The containers
 
