@@ -54,7 +54,7 @@ configuration will look like this:
 
 ```viml
 let g:vdebug_options= {
-\    "server": '172.17.42.1',
+\    "server": '172.17.0.1',
 \    "path_maps": {"/srv": "/home/username/path/to/code"}
 \}
 ```
