@@ -22,7 +22,7 @@ webserver:
         - DNSDOCK_IMAGE=web
 
 appserver:
-    image: greg0ire/php
+    image: greg0ire/php-fpm
     volumes_from:
         - data
     links:
@@ -35,6 +35,21 @@ appserver:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=app
+
+console:
+    image: greg0ire/php-cli
+    volumes_from:
+        - data
+    links:
+        - database
+        - memorycache
+        - searchengine
+        - mailer
+        - messagebroker
+    env_file:
+        - ./docker-compose.env
+    environment:
+        - DNSDOCK_IMAGE=console
         - SSH_AUTH_SOCK=/tmp/agent.sock
 
 database:
