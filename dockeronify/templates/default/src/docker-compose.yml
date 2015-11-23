@@ -37,7 +37,7 @@ appserver:
         - DNSDOCK_IMAGE=app
 
 console:
-    image: greg0ire/php-cli
+    image: greg0ire/php-console
     volumes_from:
         - data
     links:
