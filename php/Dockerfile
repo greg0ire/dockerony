@@ -5,16 +5,10 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install packages that are specific to our stack
 RUN apt-get update && \
     apt-get install --yes \
-    curl \
-    git-core \
     imagemagick \
-    make \
-    nodejs-legacy \
-    npm \
     php-apc \
     php5-cli \
     php5-curl \
-    php5-fpm \
     php5-gd \
     php5-imagick \
     php5-intl \
@@ -25,31 +19,9 @@ RUN apt-get update && \
     php5-pgsql \
     php5-mysql \
     php5-xdebug \
-    ruby-sass \
-    zsh && \
+    ruby-sass && \
     rm --recursive --force /var/lib/apt/lists/*
 
 RUN php5enmod mcrypt
 
-# Install composer
-RUN curl --silent --show-error https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer
-
-# Sanctify (the opposite of daemonize :D ) php-fpm
-RUN sed -i -e 's/;daemonize\s*=\s*yes/daemonize = no/g' /etc/php5/fpm/php-fpm.conf
-
-ADD www.conf /etc/php5/fpm/pool.d/www.conf
-ADD php-fpm.ini /etc/php5/fpm/php.ini
 ADD xdebug.ini /etc/php5/mods-available/xdebug.ini
-ADD php-cli.ini /etc/php5/cli/conf.d/30-dockerony.ini
-
-COPY entrypoint.sh /
-
-RUN chmod u+x /entrypoint.sh
-
-VOLUME /home/developer
-
-EXPOSE 9000
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["php5-fpm", "--nodaemonize"]

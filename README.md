@@ -10,7 +10,8 @@ is to have the members of your team ready to code very quickly :
 For the moment there is :
 
 - an nginx image
-- a php image
+- a php-fpm image
+- a php-console image
 - a postgres image
 - a memcached image
 - a mailcatcher image
@@ -40,9 +41,15 @@ By default, defines a `monitoring.*` virtualhost. Try it, it displays nginx and
 php-fpm status pages. There also is a `coverage.*` virtualhost, for phpunit users.
 It will serve files from `/srv/build/coverage`.
 
-### The php container
+### The php containers
 
-It comes with XDebug remote debugging ready to use!
+There are three php images. The first one serves as a base for the two others
+and you shouldn't use it. The two other are a php-fpm image, and a php-console
+image. The php-console was named like this because there are other things than
+the `php-cli` package on it : there also is nodejs, ruby-sass and other
+development-related things.
+
+Both images come with XDebug remote debugging ready to use!
 XDebug will try to reach your DBGP client on `172.17.42.1:9000`, please ensure
 that your client is not only listening on `localhost`.
 You will also need to configure remote path mappings in your debugging client
@@ -59,11 +66,11 @@ let g:vdebug_options= {
 \}
 ```
 
-The recommended way to login to this container is to exec the login command on
-it, like this:
+The recommended way to login to the console container is to exec the login
+command on it, like this:
 
 ```shell
-docker exec --interactive --tty samplesymfonyapp_appserver_1 /bin/login -p -f $(whoami)
+docker exec --interactive --tty samplesymfonyapp_console_1 /bin/login -p -f $(whoami)
 ```
 
 The `-p` flag tells login to preserve the environment, which contains
