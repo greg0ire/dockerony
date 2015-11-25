@@ -66,6 +66,13 @@ let g:vdebug_options= {
 \}
 ```
 
+By default, XDebug is disabled on the console container for performance
+reasons. It can be enabled by using php's `-d` flag, like this :
+
+```shell
+php -dzend_extension=xdebug.so <your_command_goes_here>
+```
+
 The recommended way to login to the console container is to exec the login
 command on it, like this:
 

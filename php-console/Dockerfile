@@ -18,6 +18,8 @@ RUN curl --silent --show-error https://getcomposer.org/installer | php && \
 
 ADD php-cli.ini /etc/php5/cli/conf.d/30-dockerony.ini
 
+RUN php5dismod xdebug
+
 VOLUME /home/developer
 
 COPY entrypoint.sh /
