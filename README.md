@@ -77,8 +77,10 @@ The recommended way to login to the console container is to exec the login
 command on it, like this:
 
 ```shell
-docker exec --interactive --tty samplesymfonyapp_console_1 /bin/login -p -f $(whoami)
+docker exec --user=$(whoami) --interactive --tty samplesymfonyapp_console_1 /bin/zsh
 ```
+
+Of course, you may use `/bin/bash` if you prefer.
 
 The `-p` flag tells login to preserve the environment, which contains
 `SSH_AUTH_SOCK`, used when authenticating against remove service that provide
