@@ -82,10 +82,6 @@ docker exec --user=$(whoami) --interactive --tty samplesymfonyapp_console_1 /bin
 
 Of course, you may use `/bin/bash` if you prefer.
 
-The `-p` flag tells login to preserve the environment, which contains
-`SSH_AUTH_SOCK`, used when authenticating against remove service that provide
-composer packages. The `-f` flag will allow us to bypass authentication.
-
 ### The mailcatcher container
 
 Exposes an administration interface on port 80, and an SMTP service listening
