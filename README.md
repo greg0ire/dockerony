@@ -46,7 +46,7 @@ It will serve files from `/srv/build/coverage`.
 There are three php images. The first one serves as a base for the two others
 and you shouldn't use it. The two other are a php-fpm image, and a php-console
 image. The php-console was named like this because there are other things than
-the `php-cli` package on it : there also is nodejs, ruby-sass and other
+the `php-fpm` package on it : there also is nodejs, ruby-sass and other
 development-related things, like composer or php-cs-fixer.
 
 Both images come with XDebug remote debugging ready to use!
