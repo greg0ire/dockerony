@@ -83,12 +83,9 @@ docker exec --user=$(whoami) --interactive --tty samplesymfonyapp_console_1 /bin
 Of course, you may use `/bin/bash` if you prefer.
 
 To run Composer, you might need to be able to authenticate against private
-repositories. Dockerony assumes that you are using `ssh-agent`, and shares the
-authentication socket with the console container, mounting it on
-`/tmp/agent.sock`. In the environment of the container, `SSH_AUTH_SOCK` is set
-to `/tmp/agent.sock`, so that the host ssh agent is used when authenticating
-from the container.
-
+repositories. To deal with that, log into the console container, and then
+generate a new pair of keys (`ssh-keygen`). Finally, associate the public key
+with your account.
 
 ### The mailcatcher container
 

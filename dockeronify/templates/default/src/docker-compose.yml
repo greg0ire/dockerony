@@ -6,7 +6,6 @@ data:
         - .:/srv
         - ./docker/conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
         - .home-developer:/home/developer
-        - $SSH_AUTH_SOCK:/tmp/agent.sock
         - /var/lib/postgresql/data
         - /var/lib/elasticsearch
 
@@ -50,7 +49,6 @@ console:
         - ./docker-compose.env
     environment:
         - DNSDOCK_IMAGE=console
-        - SSH_AUTH_SOCK=/tmp/agent.sock
 
 database:
     image: greg0ire/postgres
