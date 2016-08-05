@@ -1,4 +1,4 @@
-FROM greg0ire/php
+FROM greg0ire/php:release-2.0.1
 
 ENV DEBIAN_FRONTEND noninteractive
 
