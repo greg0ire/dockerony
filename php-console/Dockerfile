@@ -1,4 +1,4 @@
-FROM greg0ire/php:release-2.0.1
+FROM greg0ire/php:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -20,9 +20,9 @@ RUN curl --silent --show-error https://getcomposer.org/installer | php && \
 RUN curl --silent --show-error http://get.sensiolabs.org/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
 RUN chmod a+x /usr/local/bin/php-cs-fixer
 
-ADD php-cli.ini /etc/php5/cli/conf.d/30-dockerony.ini
+ADD php-cli.ini /etc/php/cli/conf.d/30-dockerony.ini
 
-RUN php5dismod xdebug
+RUN phpdismod xdebug
 
 VOLUME /home/developer
 
