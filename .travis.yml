@@ -1,0 +1,28 @@
+branches:
+  only:
+    - master
+
+language: bash
+services: docker
+
+env:
+  - SOFTWARE=elasticsearch
+  - SOFTWARE=mailcatcher
+  - SOFTWARE=memcached
+  - SOFTWARE=nginx
+  - SOFTWARE=npmtools
+  - SOFTWARE=php
+  - SOFTWARE=php-console
+  - SOFTWARE=php-fpm
+  - SOFTWARE=postgres
+
+before_script:
+  - env | sort
+  - cd "${SOFTWARE}"
+  - image="greg0ire/${SOFTWARE}"
+
+script:
+  - docker build --tag="$image" .
+
+after_script:
+  - docker images
