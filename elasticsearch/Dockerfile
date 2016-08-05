@@ -2,9 +2,8 @@ FROM ubuntu:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install --yes wget
-
-RUN wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add - && \
+RUN apt-get update && apt-get install --yes wget && \
+	wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add - && \
 	echo 'deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main' \
 	  | tee /etc/apt/sources.list.d/elasticsearch.list && \
 	apt-get update && \
