@@ -27,6 +27,7 @@ RUN apt-get update && \
     php7.0-soap \
     php7.0-xdebug \
     php7.0-xml \
+    php7.0-zip \
     ruby-sass && \
     rm --recursive --force /var/lib/apt/lists/*
 
