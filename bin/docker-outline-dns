@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Get docker ip
+docker_ip=$(ip -family inet -oneline addr show docker0|\
+    cut --delimiter=' '  --fields=7|cut --delimiter='/' --fields=1)
+
+# Add dns as nameserver
+resolvconf -u
+sed --in-place "1i options timeout:1\nnameserver ${docker_ip}" /run/resolvconf/resolv.conf
