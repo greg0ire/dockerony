@@ -13,6 +13,6 @@ then
     docker start dns_dock
 else
     docker run --detach=true --volume=/var/run/docker.sock:/var/run/docker.sock \
-        --publish=172.17.0.1:53:53/udp --name dns_dock tonistiigi/dnsdock
+        --publish=172.18.0.1:53:53/udp --name $dnsdockname tonistiigi/dnsdock:amd64-1.13.1
 fi
 
