@@ -11,7 +11,7 @@ if [ "$USERNAME" -a ! "$(id "$USERNAME")" ]; then
     useradd --uid "$UNIX_UID" "$USERNAME"
 
     # Replace www-data by $USERNAME
-    sed --in-place --expression="s/www-data/$USERNAME/g" /etc/php/7.0/fpm/pool.d/www.conf
+    sed --in-place --expression="s/www-data/$USERNAME/g" /etc/php/7.1/fpm/pool.d/www.conf
 
 fi
 
