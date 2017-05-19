@@ -27,6 +27,8 @@ RUN mkdir -p /var/run/postgresql && chown -R postgres /var/run/postgresql
 ENV PATH /usr/lib/postgresql/9.3/bin:$PATH
 ENV PGDATA /var/lib/postgresql/data
 
+VOLUME /var/lib/postgresql/data
+
 COPY entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
